@@ -27,6 +27,7 @@ public class Main {
 		}
 		
 		hap(0);
+		System.out.println(temp.toString());
 		bw.write(Collections.max(temp) + "\n");
 		
 		bw.close();
@@ -39,16 +40,16 @@ public class Main {
 		}
 		else {
 			
-			temp.add(numbers.get(n));
-			int a = hap(n+1) + numbers.get(n); //현재숫자를 더한뒤 넘긴다
-			int b = numbers.get(n);
+			int max;
+			int a = numbers.get(n);
+			int b = hap(n+1) + numbers.get(n); //현재숫자를 더한뒤 넘긴다
 			
-			temp.add(a);
-			temp.add(b);
+			if(a>b) max = a;
+			else max = b;
 			
-			if(a>b) return a;
-			return b;
-			
+			temp.add(max);
+			return max;
+		
 		}
 		
 		
