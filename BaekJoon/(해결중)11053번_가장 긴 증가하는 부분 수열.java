@@ -26,7 +26,8 @@ public class Main {
 			numbers.add(Integer.valueOf(nArray[i]));
 		}
 		
-		int ans = longSeq(numbers.size()-1,-1);
+		dp[0] = numbers.get(0);
+		int ans = longSeq(1,0);
 		bw.write(ans + "\n");
 		
 		
@@ -39,17 +40,17 @@ public class Main {
 			return 0;
 		}
 		else {
-			int count =0;
-			if(dp[cur] == 0 ) return dp[cur];
-			else {
-				
-				longSeq(cur + 1 , numbers.get(cur));
-				
+			
+			//현재 값과 이전의 값을 비교한다
+			for(int i=cur-1; i>=0; i--) {
+				if( numbers.get(cur) > numbers.get(i)) {
+					dp[cur] = dp[i] +1;
+				}
 			}
 			
 			
-			return count;
 			
+			return 
 		
 		}
 		
