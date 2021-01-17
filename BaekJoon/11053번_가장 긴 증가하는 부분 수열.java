@@ -5,8 +5,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedHashMap;
 
 public class Main {
 	
@@ -26,36 +24,30 @@ public class Main {
 			numbers.add(Integer.valueOf(nArray[i]));
 		}
 		
-		dp[0] = numbers.get(0);
-		int ans = longSeq(1,0);
+		int ans = lis();
 		bw.write(ans + "\n");
 		
 		
 		bw.close();
 	}
 	
-	public static int longSeq(int cur,int pre) {
+	public static int lis() {
 		
-		if(numbers.size() == cur) {
-			return 0;
-		}
-		else {
-			
-			//현재 값과 이전의 값을 비교한다
-			for(int i=cur-1; i>=0; i--) {
-				if( numbers.get(cur) > numbers.get(i)) {
-					dp[cur] = dp[i] +1;
+		int ans=0;
+		for(int i=0; i<numbers.size(); i++){
+			int maxDp = 1;
+			for(int j=0; j<i; j++) {
+				if(numbers.get(i) > numbers.get(j)) {
+					maxDp = Math.max(maxDp, dp[j] +1);
 				}
 			}
-			
-			
-			
-			return 
-		
+			dp[i] = maxDp;
+			ans = Math.max(ans,dp[i]);
 		}
 		
+		return ans;
 		
-	
+
 	}
 
 		
