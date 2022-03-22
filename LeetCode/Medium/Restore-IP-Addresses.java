@@ -79,7 +79,12 @@ class Solution {
 }
 
 
-// https://leetcode.com/problems/restore-ip-addresses/discuss/30949/My-code-in-Java
+/** https://leetcode.com/problems/restore-ip-addresses/discuss/30949/My-code-in-Java
+1. s를 앞쪽부터 substring(0, i) 쪼갠다. i는 3을 넘지 않는다.
+2. 쪼갠 숫자가 255가 넘지 않는지 검사한다.
+3. 재귀호출 한다. 이때, s에서 substring(0,i)만큼은 제거하고 넘긴다. 
+
+*/
 /**
     public List<String> restoreIpAddresses(String s) {
         List<String> result = new ArrayList<>();
